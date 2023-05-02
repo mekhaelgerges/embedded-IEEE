@@ -11,6 +11,7 @@
 #include "DIO_interface.h"
 #include "DIO_privat.h"
 #include "DIO_config.h"
+
 void DIO_voidInit (void){
 DIO_u8_DDRA_REG=conc(DIO_u8_PA7_INTIAL_DIRECTION,DIO_u8_PA6_INTIAL_DIRECTION,DIO_u8_PA5_INTIAL_DIRECTION,DIO_u8_PA4_INTIAL_DIRECTION,
                      DIO_u8_PA3_INTIAL_DIRECTION,DIO_u8_PA2_INTIAL_DIRECTION,DIO_u8_PA1_INTIAL_DIRECTION,DIO_u8_PA0_INTIAL_DIRECTION);
@@ -35,13 +36,13 @@ DIO_u8_PORTC_REG=conc(DIO_u8_PC7_INTIAL_VALUE,DIO_u8_PC6_INTIAL_VALUE,DIO_u8_PC5
                      DIO_u8_PC3_INTIAL_VALUE,DIO_u8_PC2_INTIAL_VALUE,DIO_u8_PC1_INTIAL_VALUE,DIO_u8_PC0_INTIAL_VALUE);
 
 DIO_u8_PORTB_REG=conc(DIO_u8_PB7_INTIAL_VALUE,DIO_u8_PB6_INTIAL_VALUE,DIO_u8_PB5_INTIAL_VALUE,DIO_u8_PB4_INTIAL_VALUE,
-                     DIO_u8_PB3_INTIAL_VALUE,DIO_u8_PB2_INTIAL_VALUE,DIO_u8_PB1_INTIAL_VALUE,DIO_u8_PB0_INTIAL_VALUE);                     }
-                   }
-u8 DIO_u8SetPinDirection        (u8 copy_u8portID,u8 copy_u8pinID,u8 copy_u8pinDirection)
-{
+                     DIO_u8_PB3_INTIAL_VALUE,DIO_u8_PB2_INTIAL_VALUE,DIO_u8_PB1_INTIAL_VALUE,DIO_u8_PB0_INTIAL_VALUE);}
+u8 DIO_u8SetPinDirection        (u8 copy_u8portID,u8 copy_u8pinID,u8 copy_u8pinDirection){
 	u8 Local_u8ErrorState=STD_TYBES_OK ;
 	if ((copy_u8portID<=DIO_u8_PORTD )&&(copy_u8pinID <=DIO_u8_PIN7 )&&((copy_u8pinDirection>=DIO_u8_OUTPUT)||(copy_u8pinDirection<=DIO_u8_INPUT)))
-	{
+    {
+
+
 		switch(copy_u8portID)
 		{
 			case DIO_u8_PORTA:
@@ -71,6 +72,7 @@ u8 DIO_u8SetPinDirection        (u8 copy_u8portID,u8 copy_u8pinID,u8 copy_u8pinD
 		break;
 	}
 	}
+}
 	else{Local_u8ErrorState=STD_TYBES_NOK;}
 
 	return Local_u8ErrorState ;}
