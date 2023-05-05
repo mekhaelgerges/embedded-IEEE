@@ -4,18 +4,18 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../MAIN.c \
+../LCD.c \
+../LCD_programe.c \
 ../programme.c 
 
-O_SRCS += \
-../programme.o 
-
 OBJS += \
-./MAIN.o \
+./LCD.o \
+./LCD_programe.o \
 ./programme.o 
 
 C_DEPS += \
-./MAIN.d \
+./LCD.d \
+./LCD_programe.d \
 ./programme.d 
 
 

@@ -35,6 +35,9 @@ led.lss \
 FLASH_IMAGE += \
 led.hex \
 
+EEPROM_IMAGE += \
+led.eep \
+
 SIZEDUMMY += \
 sizedummy \
 
@@ -62,6 +65,12 @@ led.hex: led.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
+led.eep: led.elf
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex led.elf  "led.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 sizedummy: led.elf
 	@echo 'Invoking: Print Size'
 	-avr-size --format=avr --mcu=atmega32 led.elf
@@ -70,10 +79,10 @@ sizedummy: led.elf
 
 # Other Targets
 clean:
-	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) led.elf
+	-$(RM) $(FLASH_IMAGE)$(ELFS)$(OBJS)$(ASM_DEPS)$(EEPROM_IMAGE)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS)$(LSS)$(C_DEPS) led.elf
 	-@echo ' '
 
-secondary-outputs: $(LSS) $(FLASH_IMAGE) $(SIZEDUMMY)
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
 
 .PHONY: all clean dependents
 .SECONDARY:

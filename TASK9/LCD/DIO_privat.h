@@ -26,10 +26,10 @@
 #define DIO_u8_INTIAL_INPUT   0
 #define DIO_u8_INTIAL_OUTPUT  1
 /*Macros for pin VALUES*/
-#define DIO_u8_OUTPUT_HIGH    1
-#define DIO_u8_OUTPUT_LOW 0
-#define DIO_u8_INPUT_FLOATING  0
-#define DIO_u8_INPUT_PULLUP  1
+#define DIO_OUTPUT_HIGH       1
+#define DIO_OUTPUT_LOW        0
+#define DIO_INPUT_FLOATING    0
+#define DIO_INPUT_PULLUP      1
 #define conc(b7,b6,b5,b4,b3,b2,b1,b0)    conc_help(b7,b6,b5,b4,b3,b2,b1,b0)
 
 #define conc_help(b7,b6,b5,b4,b3,b2,b1,b0)    0b##b7##b6##b5##b4##b3##b2##b1##b0
