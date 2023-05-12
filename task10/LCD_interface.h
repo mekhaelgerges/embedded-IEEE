@@ -14,6 +14,8 @@
 
  void LCD_voidInit(void);
 void LCD_voidSendCmnd(u8 copy_u8cmnd);
+
 void LCD_voidSendChar(u8 copy_u8Char);
+
 u8 LCD_u8GoToXY (u8 COPY_u8LineNum,u8 Copy_u8location);
 #endif // LCD_INTERFACE_H
